@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0" >
-
-</AnchorPane>
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.TicTacToe.Controller">
+   <top>
+       <MenuBar BorderPane.alignment="CENTER">
+           <Menu mnemonicParsing="false" text="File">
+               <items>
+               <MenuItem mnemonicParsing="false" onAction="#requestNewGame" text="New game" />
+               <SeparatorMenuItem mnemonicParsing="false" />
+                   <MenuItem mnemonicParsing="false" onAction="#importGame" text="Import game" />
+                   <MenuItem mnemonicParsing="false" onAction="#exportGame" text="Export game" />
+                   <SeparatorMenuItem mnemonicParsing="false" />
+                   <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+               </items>
+           </Menu>
+           <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                  <CheckMenuItem mnemonicParsing="false" onAction="#toggleDark" text="Dark mode" />
+              </items>
+           </Menu>
+           <Menu mnemonicParsing="false" text="Help">
+               <items>
+                   <MenuItem mnemonicParsing="false" text="How to play" />
+               <SeparatorMenuItem mnemonicParsing="false" />
+                   <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+           </Menu>
+       </MenuBar>
+   </top>
+   <center>
+      <GridPane gridLinesVisible="true" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="-Infinity" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="-Infinity" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="-Infinity" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+          <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+          <RowConstraints minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btn00" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggle00" prefHeight="120.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="btn01" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggle01" prefHeight="120.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="btn02" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggle02" prefHeight="120.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="btn20" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggle20" prefHeight="120.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="btn10" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggle10" prefHeight="120.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="btn21" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggle21" prefHeight="120.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="btn11" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggle11" prefHeight="120.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="btn22" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggle22" prefHeight="120.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="btn12" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggle12" prefHeight="120.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

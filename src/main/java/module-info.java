@@ -1,4 +1,4 @@
-module org.multitool {
+module org.TicTacToe {
     requires atlantafx.base;
     requires java.datatransfer;
     requires java.desktop;
