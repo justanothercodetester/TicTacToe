@@ -5,10 +5,8 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -146,14 +144,6 @@ public class Controller {
         btn21.setText(reverseGetTextOf(row3[1]));
         btn22.setText(reverseGetTextOf(row3[2]));
         this.currentText = currentText;
-    }
-
-    public void toggleDark() {
-        if (Application.getUserAgentStylesheet().endsWith("light.css")) {
-            Application.setUserAgentStylesheet(new CupertinoDark().getUserAgentStylesheet());
-        } else {
-            Application.setUserAgentStylesheet(new CupertinoLight().getUserAgentStylesheet());
-        }
     }
 
     public void toggle00() {

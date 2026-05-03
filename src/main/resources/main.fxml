@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -11,10 +10,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.TicTacToe.Controller">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.TicTacToe.Controller">
    <top>
        <MenuBar BorderPane.alignment="CENTER">
-           <Menu mnemonicParsing="false" text="File">
+           <Menu mnemonicParsing="false" text="_File">
                <items>
                <MenuItem mnemonicParsing="false" onAction="#requestNewGame" text="New game" />
                <SeparatorMenuItem mnemonicParsing="false" />
@@ -24,12 +23,7 @@
                    <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
                </items>
            </Menu>
-           <Menu mnemonicParsing="false" text="Edit">
-              <items>
-                  <CheckMenuItem mnemonicParsing="false" onAction="#toggleDark" text="Dark mode" />
-              </items>
-           </Menu>
-           <Menu mnemonicParsing="false" text="Help">
+           <Menu mnemonicParsing="false" text="_Help">
                <items>
                    <MenuItem mnemonicParsing="false" text="How to play" />
                <SeparatorMenuItem mnemonicParsing="false" />
@@ -39,7 +33,7 @@
        </MenuBar>
    </top>
    <center>
-      <GridPane gridLinesVisible="true" BorderPane.alignment="CENTER">
+      <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="-Infinity" prefWidth="100.0" />
           <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="-Infinity" prefWidth="100.0" />
