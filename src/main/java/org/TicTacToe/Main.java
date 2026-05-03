@@ -24,8 +24,6 @@ public class Main extends Application {
 
         Scene scene = new Scene(loader.load());
 
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles.css")).toExternalForm());
-
         stage.setTitle("TicTacToe");
         stage.setScene(scene);
         stage.setResizable(false);
