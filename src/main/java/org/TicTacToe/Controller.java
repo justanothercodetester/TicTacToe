@@ -133,6 +133,14 @@ public class Controller {
         setButtonsDisabled(false);
     }
 
+    public void toggleDarkMode() {
+        if (Application.getUserAgentStylesheet().endsWith("light.css")) {
+            Application.setUserAgentStylesheet(new CupertinoDark().getUserAgentStylesheet());
+        } else {
+            Application.setUserAgentStylesheet(new CupertinoLight().getUserAgentStylesheet());
+        }
+    }
+
     public void loadGame(String[] row1, String[] row2, String[] row3, String currentText) {
         btn00.setText(reverseGetTextOf(row1[0]));
         btn01.setText(reverseGetTextOf(row1[1]));
