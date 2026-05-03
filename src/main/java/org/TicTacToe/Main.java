@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class Main extends Application {
@@ -25,7 +26,8 @@ public class Main extends Application {
 
         stage.setTitle("TicTacToe");
         stage.setScene(scene);
-        //stage.setResizable(false);
+        stage.setResizable(false);
+        stage.getIcons().add(new javafx.scene.image.Image(Objects.requireNonNull(getClass().getResourceAsStream("/icon.png"))));
         stage.setOnCloseRequest(e -> {
             e.consume();
             close();
