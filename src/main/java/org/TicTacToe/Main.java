@@ -26,7 +26,7 @@ public class Main extends Application {
 
         stage.setTitle("TicTacToe");
         stage.setScene(scene);
-        stage.setResizable(false);
+        //stage.setResizable(false);
         stage.setOnCloseRequest(e -> {
             e.consume();
             close();

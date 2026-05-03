@@ -41,33 +41,33 @@ public class Controller {
     private Button btn22;
 
     public void importGame() {
-        if (!btn00.isDisable()) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setContentText("Are you sure you wish to import a game? You will loose this current game.");
-            alert.setTitle("Confirmation");
-            alert.getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Are you sure you wish to import a game? You will loose this current game.");
+        alert.setTitle("Confirmation");
+        alert.getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
 
-            Optional<ButtonType> result = alert.showAndWait();
+        Optional<ButtonType> result = alert.showAndWait();
 
-            if (result.isPresent() && result.get() == ButtonType.YES) {
+        if (result.isPresent() && result.get() == ButtonType.YES) {
 
-                FileChooser chooser = new FileChooser();
-                chooser.setTitle("Import game");
-                chooser.getExtensionFilters().addAll(
-                        new FileChooser.ExtensionFilter("TicTacToe Game File", "*.tttgame")
-                );
-                File gameFile = chooser.showOpenDialog(Main.getWindow());
-                if (gameFile != null) {
-                    try (BufferedReader reader = new BufferedReader(new FileReader(gameFile))) {
-                        String[] row1 = reader.readLine().split(", ");
-                        String[] row2 = reader.readLine().split(", ");
-                        String[] row3 = reader.readLine().split(", ");
-                        String currentText = reader.readLine();
+            FileChooser chooser = new FileChooser();
+            chooser.setTitle("Import game");
+            chooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("TicTacToe Game File", "*.tttgame")
+            );
+            File gameFile = chooser.showOpenDialog(Main.getWindow());
+            if (gameFile != null) {
+                try (BufferedReader reader = new BufferedReader(new FileReader(gameFile))) {
+                    String[] row1 = reader.readLine().split(", ");
+                    String[] row2 = reader.readLine().split(", ");
+                    String[] row3 = reader.readLine().split(", ");
+                    String currentText = reader.readLine();
 
-                        loadGame(row1, row2, row3, currentText);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    loadGame(row1, row2, row3, currentText);
+
+                    setButtonsDisabled(false);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         }
