@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -39,6 +40,9 @@ public class Controller {
     private Button btn21;
     @FXML
     private Button btn22;
+
+    @FXML
+    private GridPane gridPane;
 
     public void importGame() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -136,8 +140,29 @@ public class Controller {
     public void toggleDarkMode() {
         if (Application.getUserAgentStylesheet().endsWith("light.css")) {
             Application.setUserAgentStylesheet(new CupertinoDark().getUserAgentStylesheet());
+            gridPane.setStyle("-fx-background-color: rgba(255,255,255,0.36);");
+            btn00.setStyle("-fx-background-color: black; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn01.setStyle("-fx-background-color: black; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn02.setStyle("-fx-background-color: black; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn10.setStyle("-fx-background-color: black; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn11.setStyle("-fx-background-color: black; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn12.setStyle("-fx-background-color: black; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn20.setStyle("-fx-background-color: black; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn21.setStyle("-fx-background-color: black; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn22.setStyle("-fx-background-color: black; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+
         } else {
             Application.setUserAgentStylesheet(new CupertinoLight().getUserAgentStylesheet());
+            gridPane.setStyle("-fx-background-color: rgb(0,0,0);");
+            btn00.setStyle("-fx-background-color: white; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn01.setStyle("-fx-background-color: white; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn02.setStyle("-fx-background-color: white; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn10.setStyle("-fx-background-color: white; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn11.setStyle("-fx-background-color: white; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn12.setStyle("-fx-background-color: white; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn20.setStyle("-fx-background-color: white; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn21.setStyle("-fx-background-color: white; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
+            btn22.setStyle("-fx-background-color: white; -fx-background-radius: 0; -fx-border-width: 0; -fx-font-size: 48px; -fx-font-weight: bold;");
         }
     }
 
