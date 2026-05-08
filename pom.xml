@@ -6,13 +6,17 @@
 
     <groupId>org</groupId>
     <artifactId>TicTacToe</artifactId>
-    <version>2.2.1</version>
+    <version>3.0</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.name>TicTacToe</project.name>
+        <project.developer>JustAnotherCodeTester Github</project.developer>
         <javafx.version>21.0.11</javafx.version>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss a z</maven.build.timestamp.format>
+        <user.timezone>America/New_York</user.timezone>
     </properties>
 
     <dependencies>
@@ -37,6 +41,12 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
 
             <!-- JavaFX -->
@@ -60,6 +70,14 @@
                             <mainClass>org.TicTacToe.Main</mainClass>
                         </manifest>
                     </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
 

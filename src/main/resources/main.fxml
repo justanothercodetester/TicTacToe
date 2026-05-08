@@ -32,15 +32,13 @@
          </Menu>
            <Menu mnemonicParsing="false" text="_Help">
                <items>
-                   <MenuItem mnemonicParsing="false" text="How to play" />
-               <SeparatorMenuItem mnemonicParsing="false" />
-                   <MenuItem mnemonicParsing="false" text="About" />
+                   <MenuItem mnemonicParsing="false" onAction="#displayInfo" text="About" />
                </items>
            </Menu>
        </MenuBar>
    </top>
    <center>
-      <GridPane alignment="CENTER" hgap="8.0" maxHeight="360.0" maxWidth="360.0" prefHeight="360.0" prefWidth="360.0" style="-fx-background-color: #222222;" vgap="8.0" BorderPane.alignment="CENTER" fx:id="gridPane">
+      <GridPane fx:id="gridPane" alignment="CENTER" hgap="8.0" maxHeight="360.0" maxWidth="360.0" prefHeight="360.0" prefWidth="360.0" style="-fx-background-color: #222222;" vgap="8.0" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
          </padding>

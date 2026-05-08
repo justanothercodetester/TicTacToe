@@ -3,10 +3,11 @@ package org.TicTacToe;
 import atlantafx.base.theme.*;
 import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCombination;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -15,6 +16,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -166,6 +168,10 @@ public class Controller {
         }
     }
 
+    public void displayInfo() {
+        Alerts.showInfo();
+    }
+
     public void loadGame(String[] row1, String[] row2, String[] row3, String currentText) {
         btn00.setText(reverseGetTextOf(row1[0]));
         btn01.setText(reverseGetTextOf(row1[1]));
@@ -312,7 +318,7 @@ public class Controller {
     public void endGame(String winner) {
         System.out.println(winner + " won the game!");
         setButtonsDisabled(true);
-        int returnVal = WinnerAlert.show(winner);
+        int returnVal = Alerts.showWinner(winner);
         if (returnVal == 1) {
             startNewGame();
         }
@@ -350,8 +356,8 @@ public class Controller {
         Main.close();
     }
 
-    private static class WinnerAlert {
-        public static int show(String winner) {
+    private static class Alerts {
+        public static int showWinner(String winner) {
             AtomicInteger returnVal = new AtomicInteger(0);
 
             Stage window = new Stage();
@@ -388,10 +394,32 @@ public class Controller {
 
             window.setScene(scene);
             window.setResizable(false);
-
-            window.showAndWait();
+            window.show();
 
             return returnVal.get();
         }
+
+        public static void showInfo() {
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("About " + BuildInformation.get("app.name"));
+            stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("/icon.png"))));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/about.fxml"));
+
+            try {
+                Scene scene = new Scene(loader.load());
+                stage.setScene(scene);
+                stage.showAndWait();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("FXML Load Error");
+                alert.setHeaderText("Unable to load about.fxml");
+                alert.setContentText(ex.getMessage());
+                alert.showAndWait();
+            }
+        }
     }
+
+
 }

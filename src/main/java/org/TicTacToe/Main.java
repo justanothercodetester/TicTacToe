@@ -24,7 +24,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(loader.load());
 
-        stage.setTitle("TicTacToe");
+        stage.setTitle(BuildInformation.get("app.name") + " " + BuildInformation.get("app.version"));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.getIcons().add(new javafx.scene.image.Image(Objects.requireNonNull(getClass().getResourceAsStream("/icon.png"))));
