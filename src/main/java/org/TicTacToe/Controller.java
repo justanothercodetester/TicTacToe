@@ -313,12 +313,34 @@ public class Controller {
 
             endGame(board[0][2]);
         }
+
+        //Check if all squares are filled
+        boolean allFilled = true;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j].isBlank()) {
+                    allFilled = false;
+                }
+            }
+        }
+        if (allFilled) {
+            tieGame();
+        }
     }
 
     public void endGame(String winner) {
         System.out.println(winner + " won the game!");
         setButtonsDisabled(true);
         int returnVal = Alerts.showWinner(winner);
+        if (returnVal == 1) {
+            startNewGame();
+        }
+    }
+
+    public void tieGame() {
+        System.out.println("It's a tie!");
+        setButtonsDisabled(true);
+        int returnVal = Alerts.showWinner("Tie");
         if (returnVal == 1) {
             startNewGame();
         }
@@ -366,7 +388,13 @@ public class Controller {
             window.setTitle("Winner!");
             window.setMinWidth(250);
 
-            Label label = new Label(winner + " HAS WON THE GAME!");
+            Label label = new Label();
+
+            if (winner.equals("Tie")) {
+                label.setText("It's a tie!");
+            } else {
+                label.setText(winner + " HAS WON THE GAME!");
+            }
 
             Button Close = new Button("Close");
             Close.setOnAction(e -> {
@@ -394,7 +422,7 @@ public class Controller {
 
             window.setScene(scene);
             window.setResizable(false);
-            window.show();
+            window.showAndWait();
 
             return returnVal.get();
         }
